@@ -1,0 +1,12 @@
+.mat-card{
+    margin-top: 10px;
+    max-width: 600px;
+    margin: auto;
+}
+
+.banner{
+    width: auto;
+    height: 70px;
+    background-color: aqua;
+    
+}

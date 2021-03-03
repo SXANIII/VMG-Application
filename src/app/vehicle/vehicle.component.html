@@ -1,4 +1,35 @@
-<div fxFlex="100%">
+<p>
+    <mat-toolbar>
+      <span>VMG Showroom
+      </span>
+    </mat-toolbar>
+ </p>
 
-        
-</div>
+ <label>Sort by &nbsp;</label>
+ <mat-form-field appearance="fill">
+  <mat-label>-- Year --</mat-label>
+  <mat-select>
+    <mat-option *ngFor="let car of VehicleList" [value]="car.year">
+      {{car.year}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+  
+<div class="container" *ngFor="let car of VehicleList | filter: '': 'make' | sort:['make'] ">
+<mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title>{{car.make}}</mat-card-title>
+    </mat-card-header>
+    <img mat-card-image src="{{car.url1}}" alt="Photo of a {{car.make}}">
+    <mat-card-content>
+      <p>
+        The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+        A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+        bred for hunting.
+      </p>
+    </mat-card-content>
+    <mat-card-actions align = end>
+      <button mat-button>VEHICLE DETAILS</button>
+    </mat-card-actions>
+  </mat-card>
+</div> 
