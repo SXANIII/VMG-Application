@@ -5,6 +5,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class FilterPricePipe implements PipeTransform {
 
+  // Pipe for the Price Filter
   transform(value: any[], maxSliderValue: string, propName: string): any[] {
     const resultArray = [];
 
