@@ -5,6 +5,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class FilterMileagePipe implements PipeTransform {
 
+  // Pipe for the Mileage Filter
   transform(value: any[], maxSliderValue: string, propName: string): any[] {
     const resultArray = [];
 
