@@ -6,6 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 
 export class FilterPipe implements PipeTransform {
 
+  // Pipe for the Year Filter
   transform(value: any[], maxSliderValue: string, propName: string): any[] {
     const resultArray = [];
 
