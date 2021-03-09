@@ -12,12 +12,22 @@ export class VehicleComponent implements OnInit {
 
   constructor(private service: VehicleService, private modalService: NgbModal) { }
 
+  // FIlter and sorting variables to be passed to component
   sortValue = 'make';
   orderValue = '';
   yearSliderValue = 0;
   mileageSliderValue = 0;
   priceSliderValue = 0;
+  value: number = 10;
+  highValue: number = 90;
+  options: Options = {
+    floor: 2000,
+    ceil: 2020,
+    step: 1,
+    showTicks: true
+  };
 
+  // Vehicle detail variables to be passed to component
   vehicle:any;
   modalTitle:string;
   vehicleModel:string;
@@ -29,21 +39,17 @@ export class VehicleComponent implements OnInit {
   vehicleImage:string;
   closeResult = '';
 
+
+
+  // List of all vehicles that will hold result of get reqest to API
   VehicleList: any=[];
 
-  value: number = 10;
-  highValue: number = 90;
-  options: Options = {
-    floor: 2000,
-    ceil: 2020,
-    step: 1,
-    showTicks: true
-  };
 
   ngOnInit(): void {
     this.refreshVehicleList();
   }
 
+  // modal method that will take in a vehicle object to view its details
   viewVehicle(item){
       this.vehicle = item;
       this.modalTitle= item.make + ' ' + item.series;
@@ -57,7 +63,6 @@ export class VehicleComponent implements OnInit {
   }
 
 
-
   reset(){
     this.orderValue = undefined;
   }
@@ -68,6 +73,7 @@ export class VehicleComponent implements OnInit {
     })
   }
 
+  // open and close methods for ng bootstraop modal
   open(content) {
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
@@ -75,7 +81,7 @@ export class VehicleComponent implements OnInit {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
     });
   }
-
+  // ^^ ^^ ^^ same description as above ^^ ^^ ^^
   private getDismissReason(reason: any): string {
     if (reason === ModalDismissReasons.ESC) {
       return 'by pressing ESC';
