@@ -6,6 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class SortPipe implements PipeTransform {
 
+  // Pipe for the Sorting Radio Buttons
   transform(value: Array<string>, args: any[]): any {
     const sortfield = args[0];
     const sortDirection = args[1];
