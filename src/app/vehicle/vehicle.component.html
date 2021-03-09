@@ -2,10 +2,11 @@
     <mat-toolbar class="header">
       <span>GMV SHOWROOM
       </span>
-      <!-- Yes, GMV is an intentional typo ^-^ -->
+      <!-- Yes, GMV is an intentional typo as a play on word for VMG ^-^ -->
     </mat-toolbar>
 </p>
 
+<!-- Radio buttons for Sorting list fo vehicles-->
 <div class="Radiocontainer">
   <label>Sort By: </label>
   <mat-radio-group aria-label="Select an option" labelPosition="before" [(ngModel)]="sortValue">
@@ -15,12 +16,14 @@
     <mat-radio-button style="margin-right: 30px" class="ButtonContainer" value="make" (click)="reset()">Default (By Make)</mat-radio-button>
   </mat-radio-group>
 
+<!-- Sort By buttons -->
   <mat-button-toggle-group name="fontStyle" aria-label="Font Style" [(ngModel)]="orderValue">
     <mat-button-toggle value="asc">Ascending</mat-button-toggle>
     <mat-button-toggle value="desc">Descending</mat-button-toggle>
   </mat-button-toggle-group>
 </div>
 
+<!-- Filter by Sliders -->
 <div class="filterGrid" data-respond>
 
 <label class="filterlabel">Filter By Year </label>
@@ -34,6 +37,7 @@
 
 </div>
 
+<!-- Material cards being displayed by looping through vehiclelist and applyinig Pipes for filtering-->
 <div class="container" *ngFor="let car of VehicleList | filter: yearSliderValue : ['year'] | filterPrice: priceSliderValue : ['selling_price'] | filterMileage: mileageSliderValue : ['mileage'] | sort: [sortValue,orderValue] ">
 <mat-card class="mat-card" data-respond>
     <mat-card-header>
@@ -53,6 +57,7 @@
   </mat-card>
 </div> 
 
+<!-- Modal Pop Up window to view vehicle details-->
 <ng-template #content let-modal >
 <div class=" modal-fullscreen-lg-down">
   <div class="modal-header">
