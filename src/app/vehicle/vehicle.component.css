@@ -1,12 +1,80 @@
 .mat-card{
-    margin-top: 10px;
-    max-width: 600px;
+    max-width: 923px;
     margin: auto;
 }
-
+.header{
+    display: flex;
+    justify-content: center;
+}
 .banner{
     width: auto;
-    height: 70px;
-    background-color: aqua;
-    
+    height: 75px;
 }
+
+.filter1, .filter2, .filter3 {
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    margin-left: 17px;
+}
+
+.ButtonContainer{
+    padding-right: 50px;
+}
+
+.Radiocontainer{
+    padding-top: 15px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    color: white;
+    background-color: #212121;
+    padding-bottom: 10px;
+}
+
+.filterHeader {
+    padding-right: 70px;
+}
+
+.mat-button-toggle-group {
+    height: 20px;
+    align-items: center;
+}
+
+.form-radio-item { margin-left: 50px;}
+
+.filterGrid{
+    display: grid;
+    float: left;
+    position: relative;
+    margin-left: 70px;
+    margin-top: 30px;
+    background-color: #212121;
+    border-radius: 5%;
+    width: 330px;
+    position: absolute;
+}
+
+.descriptionmodel{
+    width: 923px;
+}
+
+.filterlabel {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 10px;
+    padding-top: 50px;
+    color: white;
+}
+
+.filter3 {
+    padding-bottom: 90px;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    margin-left: 420px;
+    width: auto;
+}
+

@@ -1,35 +1,73 @@
 <p>
-    <mat-toolbar>
-      <span>VMG Showroom
+    <mat-toolbar class="header">
+      <span>GMV SHOWROOM
       </span>
+      <!-- Yes, GMV is an intentional typo ^-^ -->
     </mat-toolbar>
- </p>
+</p>
 
- <label>Sort by &nbsp;</label>
- <mat-form-field appearance="fill">
-  <mat-label>-- Year --</mat-label>
-  <mat-select>
-    <mat-option *ngFor="let car of VehicleList" [value]="car.year">
-      {{car.year}}
-    </mat-option>
-  </mat-select>
-</mat-form-field>
-  
-<div class="container" *ngFor="let car of VehicleList | filter: '': 'make' | sort:['make'] ">
-<mat-card class="example-card">
+<div class="Radiocontainer">
+  <label>Sort By: </label>
+  <mat-radio-group aria-label="Select an option" labelPosition="before" [(ngModel)]="sortValue">
+    <mat-radio-button style="margin-right: 30px; margin-left: 30px;"class="ButtonContainer" value="year">Year</mat-radio-button>
+    <mat-radio-button style="margin-right: 30px" class="ButtonContainer" value="mileage">Mileage</mat-radio-button>
+    <mat-radio-button style="margin-right: 30px" class="ButtonContainer" value="selling_price">Selling Price</mat-radio-button>
+    <mat-radio-button style="margin-right: 30px" class="ButtonContainer" value="make" (click)="reset()">Default (By Make)</mat-radio-button>
+  </mat-radio-group>
+
+  <mat-button-toggle-group name="fontStyle" aria-label="Font Style" [(ngModel)]="orderValue">
+    <mat-button-toggle value="asc">Ascending</mat-button-toggle>
+    <mat-button-toggle value="desc">Descending</mat-button-toggle>
+  </mat-button-toggle-group>
+</div>
+
+<div class="filterGrid" data-respond>
+
+<label class="filterlabel">Filter By Year </label>
+<mat-slider class="filter1" tickInterval="2" thumbLabel min="2000" max="2021" step="1" [(ngModel)]="yearSliderValue"></mat-slider>
+
+<label class="filterlabel">FIlter by vehicle Price </label>
+<mat-slider class="filter2" tickInterval="2" thumbLabel min="100000" max="1110000" step="100000" [(ngModel)]="priceSliderValue"></mat-slider>
+
+<label class="filterlabel">Filter by Mileage on Vehicle </label>
+<mat-slider class="filter3" tickInterval="1" thumbLabel min="0" max="260000" step="10000" [(ngModel)]="mileageSliderValue"></mat-slider>
+
+</div>
+
+<div class="container" *ngFor="let car of VehicleList | filter: yearSliderValue : ['year'] | filterPrice: priceSliderValue : ['selling_price'] | filterMileage: mileageSliderValue : ['mileage'] | sort: [sortValue,orderValue] ">
+<mat-card class="mat-card" data-respond>
     <mat-card-header>
-      <mat-card-title>{{car.make}}</mat-card-title>
+      <mat-card-title>{{car.make}} {{car.series}}</mat-card-title>
     </mat-card-header>
-    <img mat-card-image src="{{car.url1}}" alt="Photo of a {{car.make}}">
+      <img class="image" mat-card-image src="{{car.url1}}" >
     <mat-card-content>
       <p>
-        The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-        A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-        bred for hunting.
+            R{{car.selling_price}} <br/>
+            {{car.mileage}} Km <br/>
+            {{car.year}} <br/>
       </p>
     </mat-card-content>
     <mat-card-actions align = end>
-      <button mat-button>VEHICLE DETAILS</button>
+    <button mat-button class="btn btn-lg btn-outline-primary" (click)="open(content)" (click)="viewVehicle(car)">VEHICLE DETAILS</button>
     </mat-card-actions>
   </mat-card>
 </div> 
+
+<ng-template #content let-modal >
+<div class=" modal-fullscreen-lg-down">
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">{{modalTitle}}</h4>
+  </div>
+  <div class="modal-body">
+    <p>Car make: {{vehicleModel}}</p>
+    <p>Car colour: {{vehicleColour}}</p>
+    <p>Car year: {{vehicleYear}}</p>
+    <p>Car selling price: R{{vehicleSellingPrice}}</p>
+    <p>Car mileage: {{vehicleMileage}} KM</p>
+    <p>Car Description: <br/><br/> {{vehicleDescription}}</p>
+    <img mat-card-image src="{{vehicleImage}}"  onerror="this.src='/assets/plchldr255.png';">
+    <mat-card-actions align = begin>
+    </mat-card-actions>
+  </div>
+</div>
+</ng-template>

@@ -1,10 +1,9 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'filter'
+  name: 'filterPrice'
 })
-
-export class FilterPipe implements PipeTransform {
+export class FilterPricePipe implements PipeTransform {
 
   transform(value: any[], maxSliderValue: string, propName: string): any[] {
     const resultArray = [];
@@ -14,10 +13,10 @@ export class FilterPipe implements PipeTransform {
     }
 
      for (const item of value) {
-       if(Number(item.year) <= Number(maxSliderValue)){
+       if(Number(item.selling_price) <= Number(maxSliderValue)){
          resultArray.push(item);
        }
-       else if (Number(maxSliderValue) < 2006){
+       else if (Number(maxSliderValue) < 129500){
         return value;
        }
      }

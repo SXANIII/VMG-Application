@@ -13,8 +13,17 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatIconModule} from '@angular/material/icon';
 import {MatListModule} from '@angular/material/list';
 import {FilterPipe} from './Pipes/filter.pipe';
-import { SortPipe } from './Pipes/sort.pipe'
+import {SortPipe} from './Pipes/sort.pipe';
 import {MatSelectModule} from '@angular/material/select';
+import {NgPipesModule} from 'ngx-pipes';
+import {MatRadioModule} from '@angular/material/radio';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import {FormsModule} from '@angular/forms'
+import {MatSliderModule} from '@angular/material/slider';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgxSliderModule } from '@angular-slider/ngx-slider';
+import { FilterPricePipe } from './Pipes/filter-price.pipe';
+import { FilterMileagePipe } from './Pipes/filter-mileage.pipe';
 
 
 
@@ -23,7 +32,9 @@ import {MatSelectModule} from '@angular/material/select';
     AppComponent,
     VehicleComponent,
     FilterPipe,
-    SortPipe
+    SortPipe,
+    FilterPricePipe,
+    FilterMileagePipe
   ],
   imports: [
     BrowserModule,
@@ -37,7 +48,14 @@ import {MatSelectModule} from '@angular/material/select';
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    MatSelectModule
+    MatSelectModule,
+    NgPipesModule,
+    MatRadioModule,
+    MatButtonToggleModule,
+    FormsModule,
+    MatSliderModule,
+    NgbModule,
+    NgxSliderModule
   ],
   providers: [],
   bootstrap: [AppComponent]
