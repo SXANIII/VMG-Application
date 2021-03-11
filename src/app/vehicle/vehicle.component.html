@@ -69,11 +69,14 @@
 
 
 <!-- Modal Pop Up window to view vehicle details-->
-<!--
+
 <ng-template #content let-modal >
-<div class=" modal-fullscreen-lg-down">
+<div>
   <div class="modal-header">
     <h4 class="modal-title" id="modal-basic-title">{{modalTitle}}</h4>
+    <mat-card-actions align = end>
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close()">Close</button>
+    </mat-card-actions>
   </div>
   <div class="modal-body">
     <p>Car make: {{vehicleModel}}</p>
@@ -83,9 +86,6 @@
     <p>Car mileage: {{vehicleMileage}} KM</p>
     <p>Car Description: <br/><br/> {{vehicleDescription}}</p>
     <img mat-card-image src="{{vehicleImage}}"  onerror="this.src='/assets/plchldr255.png';">
-    <mat-card-actions align = begin>
-    </mat-card-actions>
   </div>
 </div>
 </ng-template> 
--->
