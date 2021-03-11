@@ -46,7 +46,7 @@
 
 
 <!-- Material cards being displayed by looping through vehiclelist and applyinig Pipes for filtering-->
-<div class="displayOnWeb"></div>
+<div class="displayOnWeb">
 <div class="CarmainContainer">
 <cdk-virtual-scroll-viewport [itemSize]="1000" class="example-viewport">
 <div class="Carcontainer" *ngFor="let car of VehicleList | filter: yearSliderValue : ['year'] | filterPrice: priceSliderValue : ['selling_price'] | filterMileage: mileageSliderValue : ['mileage'] | sort: [sortValue,orderValue] ">
@@ -57,18 +57,19 @@
       <img class="image" mat-card-image src="{{car.url1}}" >
     <mat-card-content>
       <p>
-            R{{car.selling_price}} <br/>
-            {{car.mileage}} Km <br/>
-            {{car.year}} <br/>
+           <b>Price </b> R{{car.selling_price}} <br/>
+           <b>Mileage </b>{{car.mileage}} Km <br/>
+           <b>Manufacture Date </b>{{car.year}} <br/>
       </p>
     </mat-card-content>
-    <mat-card-actions align = end>
+    <mat-card-actions align = center>
     <button mat-button class="btn btn-lg btn-outline-dark" (click)="open(content)" (click)="viewVehicle(car)">VEHICLE DETAILS</button>
     </mat-card-actions>
   </mat-card>
 </div> 
 </cdk-virtual-scroll-viewport>
 </div> 
+</div>
 
 <div class="displayOnMobile">
 <div class="CarmainContainer">
@@ -80,12 +81,12 @@
       <img class="image" mat-card-image src="{{car.url1}}" >
     <mat-card-content>
       <p>
-            R{{car.selling_price}} <br/>
-            {{car.mileage}} Km <br/>
-            {{car.year}} <br/>
+        <b>Price </b>R{{car.selling_price}} <br/>
+        <b>Mileage </b>{{car.mileage}} Km <br/>
+        <b>Manufacture Date </b>{{car.year}} <br/>
       </p>
     </mat-card-content>
-    <mat-card-actions align = end>
+    <mat-card-actions align = center>
     <button mat-button class="btn btn-lg btn-outline-dark" (click)="open(content)" (click)="viewVehicle(car)">VEHICLE DETAILS</button>
     </mat-card-actions>
   </mat-card>

@@ -154,7 +154,7 @@
 }
 
 .example-viewport {
-    height: 600px;
+    height: 700px;
     width: auto;
     border: none;
   }
@@ -163,12 +163,14 @@
     display:none;
 }
 
-/* On screens that are 992px wide or less, go from four columns to two columns */
+
+/* On screens that are 1000px wide or less, go from four columns to two columns */
 @media screen and (max-width: 1000px) {
     .column {
         align-items: center;
         width: auto;
-        flex: 25%;
+        flex: 50%;
+        padding-left: 120px;
     }
     .row{
         display: flex;
@@ -208,7 +210,7 @@
         margin: 30px;
     }
 
-    .example-viewport {
+    .displayOnWeb {
         display: none;
     }
 
@@ -234,6 +236,12 @@
         display: flex;
         flex-direction: column;
         flex: 50%;
+        padding-left: 0px;
+    }
+    .column {
         padding-left: 0;
+    }
+    .filterGrid{
+        margin: 30px;
     }
 }
