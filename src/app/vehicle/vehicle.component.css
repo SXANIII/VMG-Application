@@ -1,26 +1,20 @@
-.mat-card{
+
+
+/* .mat-card{
     max-width: 923px;
     margin: auto;
 }
 .header{
     display: flex;
     justify-content: center;
+    width: auto;
 }
 .banner{
     width: auto;
     height: 75px;
 }
 
-.filter1, .filter2, .filter3 {
-    width: 300px;
-    display: flex;
-    justify-content: center;
-    margin-left: 17px;
-}
 
-.ButtonContainer{
-    padding-right: 50px;
-}
 
 .Radiocontainer{
     padding-top: 15px;
@@ -34,47 +28,159 @@
 
 .filterHeader {
     padding-right: 70px;
-}
+} */
 
-.mat-button-toggle-group {
+/* .mat-button-toggle-group {
     height: 20px;
     align-items: center;
-}
+} */
 
-.form-radio-item { margin-left: 50px;}
+/* .form-radio-item { margin-left: 50px;} */
 
-.filterGrid{
-    display: grid;
-    float: left;
-    position: relative;
-    margin-left: 70px;
-    margin-top: 30px;
-    background-color: #212121;
-    border-radius: 5%;
-    width: 330px;
-    position: absolute;
-}
+/* 
 
 .descriptionmodel{
     width: 923px;
 }
 
-.filterlabel {
-    display: flex;
-    justify-content: center;
-    padding-bottom: 10px;
-    padding-top: 50px;
-    color: white;
-}
+
 
 .filter3 {
     padding-bottom: 90px;
 }
 
-.container{
-    display: flex;
-    justify-content: center;
-    margin-left: 420px;
-    width: auto;
+ */
+
+
+
+ .filterlabel {
+    padding: 20px;
+    padding-bottom: 10px;
+    flex: 20%;
+    align-items: center;
+    max-height: max-content;
+    margin-bottom: 0px;
+    color: white;
 }
 
+.filterGrid{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    border-radius: 5%;
+    width: 330px;
+    background-color: #212121;
+    margin-left: 50px;
+    float: left;
+}
+
+.filter1, .filter2, .filter3 {
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    margin-left: 17px;
+    padding-bottom: 50px;
+}
+
+/* Container for flexboxes */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    background-color: #212121;
+    color: white;
+    padding-left: 100px;
+    padding-right: 30px;
+    padding-bottom: none;
+  }
+  
+/* Create four equal columns */
+.column {
+    padding: 20px;
+    flex: 20%;
+    align-items: center;
+    max-height: max-content;
+    margin-bottom: 0px;
+}
+
+.labelHeader{
+    padding: 9px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 0;
+}
+
+.sortcolumn {
+    padding: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.CarmainContainer{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: auto;
+    padding-left: 50px;
+}
+
+ .Carcontainer{
+    display: flex;
+    width: auto;
+    flex-direction: column;
+    margin-bottom: 30px;
+    margin-right: 20px;
+}
+
+/* On screens that are 992px wide or less, go from four columns to two columns */
+@media screen and (max-width: 1000px) {
+    .column {
+        align-items: center;
+        width: auto;
+        flex: 25%;
+    }
+    .row{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        width: auto;
+        align-items: center;
+        width: auto;
+        flex: 25%;
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+    .filterGrid{
+        margin-left: 0px;
+        padding: 15px;
+    }
+    .filterContainer{
+        display: flex;
+        justify-content: center;
+    }
+
+    .CarmainContainer{
+        display: flex;
+        justify-content: center;
+        width: auto;
+    }
+}
+
+/* On screens that are 600px wide or less, make the columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+.row {
+        align-items: center;
+        width: auto;
+        margin: auto;
+        flex: 50%;
+    }
+
+    .filterGrid{
+    padding: 9px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    float: none;
+    }
+}

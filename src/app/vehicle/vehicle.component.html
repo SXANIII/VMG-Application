@@ -1,29 +1,33 @@
-<p>
-    <mat-toolbar class="header">
-      <span>GMV SHOWROOM
-      </span>
-      <!-- Yes, GMV is an intentional typo as a play on word for VMG ^-^ -->
-    </mat-toolbar>
-</p>
 
-<!-- Radio buttons for Sorting list fo vehicles-->
-<div class="Radiocontainer">
-  <label>Sort By: </label>
-  <mat-radio-group aria-label="Select an option" labelPosition="before" [(ngModel)]="sortValue">
-    <mat-radio-button style="margin-right: 30px; margin-left: 30px;"class="ButtonContainer" value="year">Year</mat-radio-button>
-    <mat-radio-button style="margin-right: 30px" class="ButtonContainer" value="mileage">Mileage</mat-radio-button>
-    <mat-radio-button style="margin-right: 30px" class="ButtonContainer" value="selling_price">Selling Price</mat-radio-button>
-    <mat-radio-button style="margin-right: 30px" class="ButtonContainer" value="make" (click)="reset()">Default (By Make)</mat-radio-button>
+<mat-toolbar class="labelHeader">
+  <span>GMV SHOWROOM
+  </span>
+  <!-- Yes, GMV is an intentional typo ^-^ -->
+</mat-toolbar>
+
+
+<!-- Radio buttons for Sorting list for vehicles-->
+ 
+<label class="labelHeader"><b>SORTING OPTIONS:</b> </label>
+  <mat-radio-group class="row" aria-label="Select an option" labelPosition="before" [(ngModel)]="sortValue">
+    <mat-radio-button class="column" value="year" style="margin-bottom: 0px;">Year</mat-radio-button>
+    <mat-radio-button  class="column" value="mileage">Mileage</mat-radio-button>
+    <mat-radio-button class="column" value="selling_price">Selling Price</mat-radio-button>
+    <mat-radio-button class="column" value="make" (click)="reset()">Default (By Make)</mat-radio-button>
   </mat-radio-group>
 
+
+
 <!-- Sort By buttons -->
-  <mat-button-toggle-group name="fontStyle" aria-label="Font Style" [(ngModel)]="orderValue">
-    <mat-button-toggle value="asc">Ascending</mat-button-toggle>
-    <mat-button-toggle value="desc">Descending</mat-button-toggle>
-  </mat-button-toggle-group>
-</div>
+ 
+<mat-button-toggle-group class="sortcolumn" name="fontStyle" aria-label="Font Style" [(ngModel)]="orderValue">
+  <mat-button-toggle value="asc">Ascending</mat-button-toggle>
+  <mat-button-toggle value="desc">Descending</mat-button-toggle>
+</mat-button-toggle-group>
+
 
 <!-- Filter by Sliders -->
+<div class="filterContainer">
 <div class="filterGrid" data-respond>
 
 <label class="filterlabel">Filter By Year </label>
@@ -36,9 +40,14 @@
 <mat-slider class="filter3" tickInterval="1" thumbLabel min="0" max="260000" step="10000" [(ngModel)]="mileageSliderValue"></mat-slider>
 
 </div>
+</div>
+
+
+
 
 <!-- Material cards being displayed by looping through vehiclelist and applyinig Pipes for filtering-->
-<div class="container" *ngFor="let car of VehicleList | filter: yearSliderValue : ['year'] | filterPrice: priceSliderValue : ['selling_price'] | filterMileage: mileageSliderValue : ['mileage'] | sort: [sortValue,orderValue] ">
+<div class="CarmainContainer">
+<div class="Carcontainer" *ngFor="let car of VehicleList | filter: yearSliderValue : ['year'] | filterPrice: priceSliderValue : ['selling_price'] | filterMileage: mileageSliderValue : ['mileage'] | sort: [sortValue,orderValue] ">
 <mat-card class="mat-card" data-respond>
     <mat-card-header>
       <mat-card-title>{{car.make}} {{car.series}}</mat-card-title>
@@ -56,8 +65,11 @@
     </mat-card-actions>
   </mat-card>
 </div> 
+</div> 
+
 
 <!-- Modal Pop Up window to view vehicle details-->
+<!--
 <ng-template #content let-modal >
 <div class=" modal-fullscreen-lg-down">
   <div class="modal-header">
@@ -75,4 +87,5 @@
     </mat-card-actions>
   </div>
 </div>
-</ng-template>
+</ng-template> 
+-->
