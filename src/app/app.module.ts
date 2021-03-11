@@ -24,6 +24,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgxSliderModule } from '@angular-slider/ngx-slider';
 import { FilterPricePipe } from './Pipes/filter-price.pipe';
 import { FilterMileagePipe } from './Pipes/filter-mileage.pipe';
+import {ScrollingModule} from '@angular/cdk/scrolling';
 
 
 
@@ -55,7 +56,8 @@ import { FilterMileagePipe } from './Pipes/filter-mileage.pipe';
     FormsModule,
     MatSliderModule,
     NgbModule,
-    NgxSliderModule
+    NgxSliderModule,
+    ScrollingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
