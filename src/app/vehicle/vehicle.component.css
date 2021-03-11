@@ -53,7 +53,7 @@
 
 
 
- .filterlabel {
+.filterlabel {
     padding: 20px;
     padding-bottom: 10px;
     flex: 20%;
@@ -152,11 +152,17 @@
         padding-right: 0px;
     }
     .filterGrid{
-        margin-left: 0px;
-        padding: 15px;
+        padding: 9px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        float: none;
+        margin-left: 0;
     }
     .filterContainer{
+        padding: 15px;
         display: flex;
+        flex-wrap: wrap;
         justify-content: center;
     }
 
@@ -164,6 +170,11 @@
         display: flex;
         justify-content: center;
         width: auto;
+        padding-left: 0;
+    }
+
+    .Carcontainer{
+        margin: 30px;
     }
 }
 
